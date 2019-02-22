@@ -5,13 +5,14 @@
   </header>
   <div class="order-summary jumbotron">
   <%@order.line_items.each do |order| %>
-    <li><%= order.product%></li>
+    Product: <%= order.product%><br>
+    Quantity: <%= order.quantity%><br>
+    Total Price: $<%= order.product.price%>
 <% end %>
   </div>
   <div class="order-summary jumbotron">
   <p></p>
     <h4><%=@order.email %> Thank you for your order!</h4>
-    <p>Total Cost: <%=@order.total_cents * 0.010 %></p>
   </div>
 
   <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
