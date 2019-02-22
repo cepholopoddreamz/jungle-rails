@@ -5,9 +5,13 @@
   </header>
   <div class="order-summary jumbotron">
   <%@order.line_items.each do |order| %>
-    Product: <%= order.product%><br>
+    <img src="<%= order.product.image%>"><br>
+    Product: <%= order.product.name%><br>
     Quantity: <%= order.quantity%><br>
-    Total Price: $<%= order.product.price%>
+    Line Item Price: $<%= order.item_price%>
+    Total Price: $<%= order.total_price%>
+
+    
 <% end %>
   </div>
   <div class="order-summary jumbotron">
