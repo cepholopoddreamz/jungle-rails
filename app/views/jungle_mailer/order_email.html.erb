@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hi <%= @order.email %></h1>
+      <p> <%@order.line_items.each do |order| %>
+      Order No.<%= order.id%><br>
+      Thank you for ordering <%= order.quantity%> <%= order.product.name%>, for <%= order.item_price%><br>
+      Your total price for this purchase was : $<%= order.total_price%></p>
+    <p>
+    <%end%>
+  </body>
+</html>
