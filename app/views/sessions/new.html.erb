@@ -10,7 +10,7 @@
 </header>
   <div class="row">
     <div class="col-sm-6 col-sm-offset-1">
-      <%= form_for @user do |form| %>
+      <%= form_for @user, url: "/sessions", method: :post do |form| %>
         <% if form.object.errors.any? %>
           <div class="alert alert-danger">
             <strong>The following errors prevented saving:</strong>
