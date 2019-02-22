@@ -7,6 +7,7 @@
   <%@order.line_items.each do |order| %>
     <img src="<%= order.product.image%>"><br>
     Product: <%= order.product.name%><br>
+    Description: <%= order.product.description%><br>
     Quantity: <%= order.quantity%><br>
     Line Item Price: $<%= order.item_price%>
     Total Price: $<%= order.total_price%>
