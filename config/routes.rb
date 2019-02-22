@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     root to: 'dashboard#show'
     resources :products, except: [:edit, :update, :show]
     resources :categories
+   
   end
 
     get '/register', to:'users#new'

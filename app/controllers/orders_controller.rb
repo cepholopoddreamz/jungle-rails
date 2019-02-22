@@ -2,6 +2,7 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
+    #@products = Product.find(params[:id]) #i added this speculativesly....
   end
 
   def create
@@ -30,7 +31,7 @@ class OrdersController < ApplicationController
     Stripe::Charge.create(
       source:      params[:stripeToken],
       amount:      cart_subtotal_cents,
-      description: "Khurram Virani's Jungle Order",
+      description: "crazy persons Jungle Order",
       currency:    'cad'
     )
   end
