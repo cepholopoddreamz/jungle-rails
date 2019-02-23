@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   namespace :admin do
     root to: 'dashboard#show'
     resources :products, except: [:edit, :update, :show]
-    resources :categories
+    resources :categories, except: [:edit, :update, :show]
    
   end
 
@@ -25,6 +25,9 @@ Rails.application.routes.draw do
     get '/login', to:'sessions#new'
     post '/sessions', to: 'sessions#create'
     get '/logout', to:'sessions#destroy'
+
+    # get '/reviews', to 'reviews#new'
+    # post '/reviews' to 'reviews#create'
 
 
 
