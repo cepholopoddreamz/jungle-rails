@@ -6,9 +6,19 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find params[:id]
-    @reviews = Review.new
+    @reviews = Review.new #eventually....(review params)
+    #product.review = review?
   end
+
+  # def create
+  #   review = Review.find(params[:product])
+  # end
 end
+
+
+#if the reviews are associated with a particular product... do they maybe also need to find product by it's id or name? 
+
+
 
 # quote = Quote.find(params[:quote_id])
 # comment = Comment.new(comment_params)

@@ -140,7 +140,9 @@ puts "DONE!"
 
 product1 = Product.first
 
-user = User.create({first_name:"leslie", last_name:"something", email:"noidont@want.to", password_digest:'123456'})
+user = User.create({first_name:"Marcus", last_name:"Method", email:"noidont@want.to", password_digest:'123456'})
+
+user2 = User.create({first_name:"Samantha", last_name:"Smith", email:"noidont@want.to", password_digest:'135679'})
 # user2 = User.last
 # user3 = User.shuffle
 
