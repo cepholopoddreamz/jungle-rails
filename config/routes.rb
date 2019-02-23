@@ -26,8 +26,10 @@ Rails.application.routes.draw do
     post '/sessions', to: 'sessions#create'
     get '/logout', to:'sessions#destroy'
 
-    # get '/reviews', to 'reviews#new'
-    # post '/reviews' to 'reviews#create'
+    # get 'product/reviews', to ' products#show'
+    # post 'product/reviews/add' to 'review#create'
+
+    #???
 
 
 

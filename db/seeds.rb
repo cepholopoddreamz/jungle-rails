@@ -29,9 +29,8 @@ cat1 = Category.find_or_create_by! name: 'Apparel'
 cat2 = Category.find_or_create_by! name: 'Electronics'
 cat3 = Category.find_or_create_by! name: 'Furniture'
 
-##REVIEWS
 
-# rev1 = Review.
+
 
 ## PRODUCTS
 
@@ -87,7 +86,6 @@ cat1.products.create!({
   price: 224.50
 })
 
-
 cat2.products.create!({
   name:  'Modern Skateboards',
   description: Faker::Hipster.paragraph(4),
@@ -136,5 +134,30 @@ cat3.products.create!({
   price: 2_483.75
 })
 
-
 puts "DONE!"
+
+##REVIEWS
+
+product1 = Product.first
+
+user = User.create({first_name:"leslie", last_name:"something", email:"noidont@want.to", password_digest:'123456'})
+# user2 = User.last
+# user3 = User.shuffle
+
+product1.reviews.create!({user:user, description:'appples', rating: 4})
+
+product1.reviews.create!({user:user, description:'banannas', rating: 7})
+
+product1.reviews.create!({user:user, description:'capsicum', rating: 5})
+
+
+# product1.reviews.create!({user:user1, description:'blah blah blah hat hat hat', rating: 4})
+
+
+# Review.new(user:'user2', description:'blah blah blah hat hat hat', rating: 4)
+
+#product isn't working...  i modified the controller so the product isnt a requirement.. in the mean time. 
+
+# Review.new(product: 'apples', user:'user2', description:'blah blah blah hat hat hat', rating: 4)
+
+# test1 = Review.new({user:'user2', description:'blah blah blah hat hat hat', rating: 4})
