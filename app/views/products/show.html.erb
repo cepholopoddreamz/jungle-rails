@@ -22,12 +22,13 @@
           <dd><%= @product.quantity %></dd>
           <dt>Price</dt>
           <dd><%= @product.price %></dd>
-          <dt>Review</dt>
+          <br>
+          <dt>Reviews</dt>
           <dd><% product1 = Product.first %>
           <%product1.reviews.each do |order| %>
-            User: <%= order.user.first_name%> <%= order.user.last_name%><br>
-            Details: <%= order.description%><br>
-            Rating: <%= order.rating%><br>
+            <i>User:</i> <%= order.user.first_name%> <%= order.user.last_name%><br>
+            <i>Details:</i> <%= order.description%><br>
+            <i>Rating:</i> <%= order.rating%><br>
             <br>
         <% end %></dd>
        
