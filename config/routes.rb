@@ -1,9 +1,17 @@
 Rails.application.routes.draw do
 
   root to: 'products#index'
-
+  
   resources :products, only: [:index, :show]
+  
+  resources :products do
+    resources :reviews, only: [:create]
+  end
+  #resources :reviews, only: [:new, :create]
+  
+  
   resources :categories, only: [:show]
+ 
 
   resource :cart, only: [:show] do
     post   :add_item
@@ -26,10 +34,7 @@ Rails.application.routes.draw do
     post '/sessions', to: 'sessions#create'
     get '/logout', to:'sessions#destroy'
 
-    # get 'product/reviews', to: 'products#show'
-    # post 'product/reviews/add' to: 'review#create'
-
-    #???
+    #post '/products/:product_id/reviews(.:format)', to:'reviews#create'
 
 
 

@@ -8,13 +8,16 @@ class ProductsController < ApplicationController
     @product = Product.find params[:id]
     @reviews = Review.new#(review_params)
     #@product.review = review
+    #@reviews = @product.reviews.order(created_at: :desc)
   end
 
-
-
-  # def create
-  #   review = Review.find(params[:product])
-  # end
+  def create
+    @review = Review.new(review_params)
+    product = Product.find(params[:id])
+    review = review.new(review_params)
+    #review.product = product
+    @review.user = current_user
+  end
 end
 
 
@@ -31,16 +34,14 @@ end
 private 
 
 
-
-
-# def review_params
-#   params.require(:reviews).permit(
-#     :product,
-#     :user,
-#     :description,
-#     :rating
-#   )
-# end
+def review_params
+  params.require(:review).permit(
+    :product,
+    :user,
+    :description,
+    :rating
+  )
+end
 
 # product: product,
 #   quantity: quantity,
@@ -49,10 +50,6 @@ private
 
 
 
-#   validates :product, presence: true
-#   validates :user, presence: true
-#   validates :description, presence: true
-#   validates :rating, presence: true
 
 
 

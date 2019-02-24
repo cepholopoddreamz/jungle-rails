@@ -23,6 +23,20 @@
           <dt>Price</dt>
           <dd><%= @product.price %></dd>
           <br>
+          <dt>Post Review</dt>
+          <dd>
+          <%= form_for [@product, @reviews] do |f| %>
+            First Name : <%= f.text_field :user, class: 'form-control' %><br />
+            Last Name : <%= f.text_field :user, class: 'form-control' %><br />
+            Comments : <%= f.text_field :description, class: 'form-control' %><br />
+            Rating : <%= f.text_field :rating, class: 'form-control' %><br />
+            <%= f.submit %>
+          <% end %>
+
+          
+          
+          </dd>
+          <br>
           <dt>Reviews</dt>
           <dd><% product1 = Product.first %>
           <%product1.reviews.each do |order| %>
