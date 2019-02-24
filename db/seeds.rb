@@ -143,14 +143,13 @@ product1 = Product.first
 user = User.create({first_name:"Marcus", last_name:"Method", email:"noidont@want.to", password_digest:'123456'})
 
 user2 = User.create({first_name:"Samantha", last_name:"Smith", email:"noidont@want.to", password_digest:'135679'})
-# user2 = User.last
-# user3 = User.shuffle
 
-product1.reviews.create!({user:user, description:'appples', rating: 4})
 
-product1.reviews.create!({user:user, description:'banannas', rating: 7})
+product1.reviews.create!({user:user, description:'if you want to trip your grandmother out and pretend the angles are straight, while she is seeing them wonky, then this is the best choice for you', rating: 4})
 
-product1.reviews.create!({user:user, description:'capsicum', rating: 5})
+product1.reviews.create!({user:user2, description:'this shelf was just okay and definitely not worth the price tag', rating: 7})
+
+product1.reviews.create!({user:user, description:'why buy this when you could just go to ikea?', rating: 1})
 
 
 # product1.reviews.create!({user:user1, description:'blah blah blah hat hat hat', rating: 4})

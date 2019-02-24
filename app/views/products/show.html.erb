@@ -23,16 +23,21 @@
           <dt>Price</dt>
           <dd><%= @product.price %></dd>
           <dt>Review</dt>
-
-          <%@reviews.each do |order| %>
-            Details: <%= order.details%><br>
-        <% end %>
+          <dd><% product1 = Product.first %>
+          <%product1.reviews.each do |order| %>
+            User: <%= order.user.first_name%> <%= order.user.last_name%><br>
+            Details: <%= order.description%><br>
+            Rating: <%= order.rating%><br>
+            <br>
+        <% end %></dd>
        
 
         </dl>
       </div>
     </div>
    
-  </article>
+  </article>≤
 
 </section>
+
+

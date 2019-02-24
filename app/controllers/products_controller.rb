@@ -6,9 +6,11 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find params[:id]
-    @reviews = Review.new #eventually....(review params)
-    #product.review = review?
+    @reviews = Review.new#(review_params)
+    #@product.review = review
   end
+
+
 
   # def create
   #   review = Review.find(params[:product])
@@ -16,19 +18,42 @@ class ProductsController < ApplicationController
 end
 
 
-#if the reviews are associated with a particular product... do they maybe also need to find product by it's id or name? 
+# def create
+#   @review = Review.new(review_params)
 
-
-
-# quote = Quote.find(params[:quote_id])
-# comment = Comment.new(comment_params)
-# comment.quote = quote
-
-
-
-# def new
-#   @review = Review.new
+#   if @review.save
+#     redirect_to [:admin, :reviews], notice: 'Product created!'
+#   else
+#     render :new
+#   end
 # end
+
+private 
+
+
+
+
+# def review_params
+#   params.require(:reviews).permit(
+#     :product,
+#     :user,
+#     :description,
+#     :rating
+#   )
+# end
+
+# product: product,
+#   quantity: quantity,
+#   item_price: product.price,
+#   total_price: product.price * quantity
+
+
+
+#   validates :product, presence: true
+#   validates :user, presence: true
+#   validates :description, presence: true
+#   validates :rating, presence: true
+
 
 
 
