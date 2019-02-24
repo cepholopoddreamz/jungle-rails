@@ -1,7 +1,18 @@
 class ReviewsController < ApplicationController
 
+  def new
+    @review = Review.new
+  end
+
   def create
-  
+    raise "Yay, I'm here!"
+    @review = Review.new(review_params)
+
+    if @review.save
+      redirect_to [:admin, :products], notice: 'Product created!'
+    else
+      render :new
+    end
   end
 
 
