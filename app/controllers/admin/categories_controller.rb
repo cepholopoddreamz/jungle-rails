@@ -1,7 +1,5 @@
 class Admin::CategoriesController < Admin::AdminController 
 
-  
-
   def index
     @categories = Category.order(id: :desc).all
   end

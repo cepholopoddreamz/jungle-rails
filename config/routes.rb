@@ -7,11 +7,8 @@ Rails.application.routes.draw do
   resources :products do
     resources :reviews, only: [:create]
   end
-  #resources :reviews, only: [:new, :create]
-  
-  
+
   resources :categories, only: [:show]
- 
 
   resource :cart, only: [:show] do
     post   :add_item
@@ -24,7 +21,6 @@ Rails.application.routes.draw do
     root to: 'dashboard#show'
     resources :products, except: [:edit, :update, :show]
     resources :categories, except: [:edit, :update, :show]
-   
   end
 
     get '/register', to:'users#new'

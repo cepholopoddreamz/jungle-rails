@@ -1,79 +1,37 @@
 class ReviewsController < ApplicationController
 
+  # def index
+  #   @reviews = @product.reviews.order(created_at: :desc)
+  # end
+
   def new
     @review = Review.new
   end
 
   def create
-    raise "Yay, I'm here!"
+    #raise "Yay, I'm here!"
+    product = Product.find(params[:product_id])
     @review = Review.new(review_params)
-
+    @review.product = product
+    
     if @review.save
-      redirect_to [:admin, :products], notice: 'Product created!'
+      redirect_to product_path(params[:product_id]), notice: 'Review created'
+      #raise 'maybe this is working'
     else
+      #raise "not working"
       render :new
     end
   end
-
-
-
 end
 
 
-# create_table :reviews do |t|
-#   t.references :product
-#   t.references :user
-#   t.text :description 
-#   t.integer :rating
+private 
 
-#   t.timestamps null: false
-
-
-# def new
-#   @review = Review.new
-# end
-
-# def create
-#   puts '----------review create-------'
-#   @review = Review.new(review_params)
-#   # if review .save
-#   #   #redirect_to [:view],  --
-#   #   notice: 'Product created!'
-#   # else
-#   #   notice: 'not saved'
-# end
-
-
-# def index
-#   @reviews = Review.order(id: :desc).all
-# end
-  
-
-
-
-
-
-
-
-
-
-
-
-# create_table :reviews do |t|
-#   t.references :product
-#   t.references :user
-#   t.text :description 
-#   t.integer :rating
-
-#   t.timestamps null: false
-
-
-# def create
-# #   if @user && @user.authenticate(params[:user][:password])
-# #     session[:user_id] = @user.id
-# #     redirect_to root_path
-# #   else 
-# #     render :new
-# #   end
-# # end
-# end
+def review_params
+  params.require(:review).permit(
+    :product,
+    :user,
+    :description,
+    :rating
+  )
+end

@@ -3,15 +3,11 @@
   <header class="page-header">
     <h1><%= link_to @product.category.name, @product.category %> &raquo; <%= @product.name %></h1>
   </header>
-
   <article class="product-detail">
-
     <div class="row">
-
       <div class="col-sm-4">
         <%= image_tag @product.image.url, class: 'main-img' %>
       </div>
-
       <div class="col-sm-8">
         <dl class="dl-horizontal">
           <dt>Name</dt>
@@ -26,9 +22,10 @@
           <dt>Post Review</dt>
           <dd>
           <%= form_for [@product, @reviews] do |f| %>
-            
             Comment : <%= f.text_area :description, class: 'form-control' %><br />
             Rating :  <%= f.select :rating, ['1/5', '2/5', '3/5', '4/5', '5/5'] %>
+            
+            <%= f.submit %>
           <% end %>
           </dd>
           <br>
@@ -38,17 +35,13 @@
             <i>User:</i> <%= order.user.first_name%> <%= order.user.last_name%><br>
             <i>Details:</i> <%= order.description%><br>
             <i>Rating:</i> <%= order.rating%><br>
-            
             <br>
-        <% end %></dd>
-       
-
+            <% end %>
+          </dd>
         </dl>
       </div>
     </div>
-   
-  </article>≤
-
+  </article>
 </section>
 
 
