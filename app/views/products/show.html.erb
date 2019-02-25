@@ -30,6 +30,7 @@
           </dd>
           <br>
           <dt>Reviews</dt>
+          <dd> <%= render @reviews %></dd>
           <dd><% product1 = Product.first %>
           <%product1.reviews.each do |order| %>
             <i>User:</i> <%= order.user.first_name%> <%= order.user.last_name%><br>

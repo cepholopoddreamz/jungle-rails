@@ -1,5 +1,9 @@
 class ProductsController < ApplicationController
 
+  def new
+    @review = Review.new
+  end
+
   def index
     @products = Product.all.order(created_at: :desc)
     #@reviews = @product.reviews.order(created_at: :desc)
@@ -7,8 +11,10 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find params[:id]
-    @reviews = Review.new#(review_params)
-    #@reviews = @product.reviews.order(created_at: :desc)
+    #@reviews = Review.new#(review_params)
+    @reviews = @product.reviews.order(created_at: :desc)
+    @reviews = Review.new
+
   end
 
   # def create

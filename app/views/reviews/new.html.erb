@@ -14,14 +14,19 @@
             <ul>
               <% form.object.errors.full_messages.each do |error| %>
                 <li><%= error %></li>
+                <% else %>
+                <%= render 'form', review: @review %>
+                <%= link_to 'Back', product_path %>
               <% end %>
             </ul>
           </div>
         <% end %>
+
+        
         <div class="row">
            <div class="form-group">
           <%= form.label :name %>
-          <%= form.text_field :name, class: 'form-control' %>
+          <%= form.text_field :description, class: 'form-control' %>
        </div>
 
         <%= form.submit 'Create Review', class: 'btn btn-primary' %>
