@@ -21,24 +21,18 @@
           <br>
           <dt>Post Review</dt>
           <dd>
-          <%= form_for [@product, @reviews] do |f| %>
+
+          <% if @current_user %>
+            <%= form_for [@product, @review] do |f| %>
             Comment : <%= f.text_area :description, class: 'form-control' %><br />
             Rating :  <%= f.select :rating, ['1/5', '2/5', '3/5', '4/5', '5/5'] %>
-            
             <%= f.submit %>
-          <% end %>
+            <% end %>
+            <% end %>
           </dd>
           <br>
           <dt>Reviews</dt>
           <dd> <%= render @reviews %></dd>
-          <dd><% product1 = Product.first %>
-          <%product1.reviews.each do |order| %>
-            <i>User:</i> <%= order.user.first_name%> <%= order.user.last_name%><br>
-            <i>Details:</i> <%= order.description%><br>
-            <i>Rating:</i> <%= order.rating%><br>
-            <br>
-            <% end %>
-          </dd>
         </dl>
       </div>
     </div>

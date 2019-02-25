@@ -2,17 +2,16 @@ class UsersController < ApplicationController
   #include BCrypt #------->>> i added this. is this right?
   def create 
     user = User.new(user_params)
-    #has_secure_password
 
     if user.save
       session[:user_id] = user.id
       redirect_to root_path
     else 
-      render :new #that's the form
-    end #not doing a redirect or you will loose the error message
+      @user = User.new
+      render :new 
+    end 
   end  
 
-  #get request to display the login form 
   def new
     @user = User.new
   end
@@ -37,7 +36,7 @@ end
 #   if @user.password == params[:password]
 #     give_token
 #   else
-#     redirect_to home_url
+#     redirect_to [:products]
 #   end
 # end
 

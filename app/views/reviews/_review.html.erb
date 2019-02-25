@@ -1,13 +1,20 @@
 <tr>
-  <% product1 = Product.find(params[:id])%>
-<%product1.reviews.each do |review| %>
+  
+
   <i>review by: <%= review.user.first_name %> <%= review.user.last_name %></i><br>
   <i>comments:</i> <%= review.description%><br>
   <i>Rating:</i> <%= review.rating%>
   <br>
+  <% if @current_user == review.user %>
+  <%= link_to 'Delete', [@product, review], method: :delete, data: {confirm: "Are you sure?"}  %>
   <% end %>
   
 </tr>
+
+
+
+
+
 
 
 
