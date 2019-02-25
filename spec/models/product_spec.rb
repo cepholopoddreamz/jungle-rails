@@ -10,6 +10,7 @@ RSpec.describe Product, type: :model do
       @product.price_cents = 234
       @product.quantity = 20
     end
+    #making it fail 
     it "is valid with valid attributes" do
       expect(@product).to be_valid
     end
@@ -31,13 +32,3 @@ RSpec.describe Product, type: :model do
     end
   end
 end
-
-#product{
-#   Product.new(name: "Anything", price: 12345,
-#   category: 'Apparel', quantity: 20 
-# }
-
-    #product {Product.new}
-
-
-#tests only the model
