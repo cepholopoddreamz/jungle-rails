@@ -31,29 +31,4 @@ def user_params
   )
 end
 
-# def login
-#   @user = User.find_by email(params[:email])
-#   if @user.password == params[:password]
-#     give_token
-#   else
-#     redirect_to [:products]
-#   end
-# end
-
-# def password
-#   @password ||= Password.new(password_hash)
-# end
-
-# def password=(new_password)
-#   @password = Password.create(new_password)
-#   self.password_hash = @password #has_secure_password
-# end
-
-
-#  def destroy
-#     session[:user_id] = nil
-#     redirect_to '/login'
-#   end
-
-
 end
