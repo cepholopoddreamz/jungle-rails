@@ -7,15 +7,19 @@ class ProductsController < ApplicationController
     #@reviews = @product.reviews.order(created_at: :desc)
   end
 
+
+
   def show
     @product = Product.find params[:id]
     #@reviews = Review.new#(review_params)
     @reviews = @product.reviews.order(created_at: :asc)
     @reviews = Review.new
+    @reviews.user = current_user
   end
 
   def new
     @review = Review.new
+    #@review.user = current_user
   end
 
 private

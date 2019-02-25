@@ -6,12 +6,12 @@ class ReviewsController < ApplicationController
 
   def create
     #raise "Yay, I'm here!"
-    product = Product.find(params[:product_id])
-    #@review.user = current_user
-    
+    product = Product.find(params[:product_id]) 
     review = Review.new(review_params)
     review.product = product
-    puts params
+    review.user = current_user
+     #user = @current_user
+    #user = current_user
     
     if review.save
       redirect_to product_path(params[:product_id]), notice: 'Review created'
@@ -19,9 +19,20 @@ class ReviewsController < ApplicationController
       #puts 'Review created'
       
     else
+      #change this to an error page
       redirect_to product_path(params[:product_id]), notice: review.errors.full_messages
     end
   end
+
+  # def destroy
+  #   review = Review.find(params[:id])
+
+  #   if review.destroy
+  #     redirect_to quote_path(params[:review_id]), notice: "Review deleted!"
+  #   else
+  #     redirect_to quote_path(params[:review_id]), notice: "Could not delete the review!"
+  #   end
+  # end
 
 
 

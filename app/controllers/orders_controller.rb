@@ -20,7 +20,9 @@ class OrdersController < ApplicationController
     redirect_to cart_path, flash: { error: e.message }
   end
 
-  private
+  private  
+
+  
 
   def empty_cart!
     # empty hash means no products in cart :)
