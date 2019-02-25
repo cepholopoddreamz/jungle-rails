@@ -1,5 +1,14 @@
 <tr>
-  <td><%= review.description %>
-  <td><%= review.rating %>
-  <p>apples</p>
+<br>
+<%= current_user.first_name%> <%= current_user.last_name%><br>
+  <% product1 = Product.find(params[:id])%>
+<%product1.reviews.each do |order| %>
+  
+  <i>Details:</i> <%= order.description%><br>
+  <i>Rating:</i> <%= order.rating%>
+  <br>
+  <% end %>
 </tr>
+
+
+

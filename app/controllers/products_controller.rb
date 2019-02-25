@@ -1,8 +1,6 @@
 class ProductsController < ApplicationController
 
-  def new
-    @review = Review.new
-  end
+  
 
   def index
     @products = Product.all.order(created_at: :desc)
@@ -12,24 +10,22 @@ class ProductsController < ApplicationController
   def show
     @product = Product.find params[:id]
     #@reviews = Review.new#(review_params)
-    @reviews = @product.reviews.order(created_at: :desc)
+    @reviews = @product.reviews.order(created_at: :asc)
     @reviews = Review.new
-
   end
 
-  # def create
-  #   #@review = Review.new(review_params)
-  #   product = Product.find(params[:id])
-  #   #review = review.new(review_params)
-  #   #review.product = product
-  #   #@review.user = current_user
-  # end
+  def new
+    @review = Review.new
+  end
+
+private
+
 end
 
 
 
 
-private 
+
 
 
 # def review_params
