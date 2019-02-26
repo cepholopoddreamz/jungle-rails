@@ -7,9 +7,20 @@ class User < ActiveRecord::Base
     User.find_by(email: email).try(:authenticate, password) 
   end
 
+  # def strip_whitespace_from_attributes(*args)
+  #   args.each do |attribute|
+  #     define_method "#{attribute}=" do |value|
+  #         #debugger
+  #         value = value.gsub(/\s*/, "")
+  #         #debugger
+  #         super(value)
+  #       end
+  #   end
+  # end
+
   validates :first_name, presence: true
   validates :last_name, presence: true
-  validates :email, presence: true
+  validates :email, presence: true, uniqueness: { case_sensitive: false }
   validates :password, length: { in: 6..20 }
 
 end
