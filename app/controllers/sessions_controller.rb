@@ -4,8 +4,9 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @user = User.find_by_email(params[:user][:email])
-    if @user && @user.authenticate(params[:user][:password])
+    #@user = User.find_by_email(params[:user][:email])
+    #the authenticate_with because of the application of self in the user model methods ------ makes it behave as a class method --- - Instance of User ---  create an instance of User at the same level as this. 
+    if @user = User.authenticate_with_credentials(params[:user][:email],params[:user][:password])
       session[:user_id] = @user.id
       redirect_to root_path
     else 
