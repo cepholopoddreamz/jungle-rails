@@ -4,16 +4,12 @@ class SessionsController < ApplicationController
   end
 
   def create
-    #@user = User.find_by_email(params[:user][:email]) 
-    #stripped_email = strip_whitespace_from_attributes(params[:user][:email])
-    #stripped_password = strip_whitespace_from_attributes(params[:user][:password])
     if @user = User.authenticate_with_credentials(params[:user][:email],params[:user][:password])
       session[:user_id] = @user.id
       redirect_to root_path
     else 
       @user = User.new
       render :new
-      
     end
   end
 

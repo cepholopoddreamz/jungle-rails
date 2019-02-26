@@ -62,5 +62,17 @@ RSpec.describe User, type: :model do
       expect(user).to be_falsey
       #user.password_confirmation = nil
     end
+    it 'spaces are present' do
+      user = User.authenticate_with_credentials(' smith@gmail.com  ','something2')
+      expect(user).to be_truthy
+      #user.password_confirmation = nil
+    end
+    it 'spaces are present' do
+      user = User.authenticate_with_credentials('sMith@gMail.com','something2')
+      expect(user).to be_truthy
+      #user.password_confirmation = nil
+    end
   end
 end
+
+

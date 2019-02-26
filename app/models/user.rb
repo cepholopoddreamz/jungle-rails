@@ -4,10 +4,24 @@ class User < ActiveRecord::Base
 
   def self.authenticate_with_credentials(email, password)
     #@user = User.find_by_email(email) 
-    User.find_by(email: email).try(:authenticate, password) 
+    email_conv = email.downcase.strip 
+    User.find_by(email: email_conv).try(:authenticate, password) 
   end
 
-  # def strip_whitespace_from_attributes(*args)
+ 
+
+  # # def strip_whitespace(*params)
+  # #   params.map{ |attr| attr.strip }
+  # # end
+
+  # def convert_to_lowercase(email)
+  #   input.each do |letter|
+  #     letter.downcase
+  #   end
+  # end
+
+
+   # def strip_whitespace_from_attributes(*args)
   #   args.each do |attribute|
   #     define_method "#{attribute}=" do |value|
   #         #debugger
@@ -16,7 +30,7 @@ class User < ActiveRecord::Base
   #         super(value)
   #       end
   #   end
-  # end
+  #end
 
   validates :first_name, presence: true
   validates :last_name, presence: true
