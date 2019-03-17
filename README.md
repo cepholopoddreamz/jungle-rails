@@ -1,6 +1,12 @@
 # Jungle
 
-A mini e-commerce application built with Rails 4.2 for purposes of teaching Rails by example.
+A mini e-commerce application built with Rails 4.2 for purposes of teaching Rails by example. This project was built as part of Week 7 Lighthouse Labs course work.
+
+<img src="https://github.com/cepholopoddreamz/jungle-rails/blob/cab61677b2562f4c019f0dc91e421b9b26bc7e5d/public/frontpage.png" width="500">
+
+<img src="https://github.com/cepholopoddreamz/jungle-rails/blob/cab61677b2562f4c019f0dc91e421b9b26bc7e5d/public/cart.png" width="500">
+
+<img src="https://github.com/cepholopoddreamz/jungle-rails/blob/cab61677b2562f4c019f0dc91e421b9b26bc7e5d/public/categoryview.png" width="500">
 
 
 ## Setup
